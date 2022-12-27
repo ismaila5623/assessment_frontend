@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Question Answer</title>
+</head>
+
+<body>
+    <div class="page container">
+        <div class="setup">
+                <p class="question-preview">
+                    Setup
+                </p>
+            <div class="view-mode">
+                <form action="" class="form setup-form edit-mode">
+                    <div class="setup-input--container">
+                        <div class="input-label--container">
+                            <div class="form-label">Assessment type</div>
+                            <select class="form-select">
+                                <option value="" class="form-option">Exam</option>
+                                <option value="" class="form-option">Test</option>
+                                <option value="" class="form-option">other</option>
+                            </select>
+                        </div>
+                        <div class="input-label--container">
+                            <div class="form-label">Subject</div>
+                            <select class="form-select">
+                                <option value="" class="form-option">English</option>
+                                <option value="" class="form-option">Maths</option>
+                                <option value="" class="form-option">Science</option>
+                                <option value="" class="form-option">other</option>
+                            </select>
+                        </div>
+                        <div class="input-label--container">
+                            <div class="form-label">Term</div>
+                            <select class="form-select">
+                                <option value="" class="form-option">1</option>
+                                <option value="" class="form-option">2</option>
+                                <option value="" class="form-option">3</option>
+                                <option value="" class="form-option">other</option>
+                            </select>
+                        </div>
+                        <div class="input-label--container">
+                            <div class="form-label">question type</div>
+                            <select class="form-select">
+                                <option value="" class="form-option">theory</option>
+                                <option value="" class="form-option">objective</option>
+                                <option value="" class="form-option">subjective</option>
+                                <option value="" class="form-option">other</option>
+                            </select>
+                        </div>
+                        <div class="btn-container">
+                            <button class="submit-btn">submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="questions-container">
+            <div class="pregnant-question--container">
+                <div class="question theory">
+                    <div class="question-top">
+                        <span class="q-number"></span>
+                        <div class="tools">
+                            <span class="save">save</span>
+                            <span class="edit">edit</span>
+                            <span class="delete">delete</span>
+                        </div>
+                    </div>
+                    <div class="view-mode">
+                        <form action="" class="form question-form edit-mode">
+                            <div class="question-input--container">
+                                <input type="text" placeholder="type questions description here" class="question-input">
+                            </div>
+                            <div class="pregnant-question--bottom">
+                                <input type="file" class="question-img--input">
+                                <div class="question-range--container">
+                                    <span class="range-desc--label">(set question Start and End)</span>
+                                    <div class="range">
+                                        <div class="from-container">
+                                            <span class="from-label">from:</span>
+                                            <input type="number" class="from-input">
+                                        </div>
+                                        <div class="to-container">
+                                            <span class="to-label">to:</span>
+                                            <input type="number" class="to-input">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="preview-mode">
+                            <p class="question-preview">
+                                What is HTML? (pregnant-q desc)
+                            </p>
+                            <img src="./assets/images/sample.png" class="pregnant-question--img" alt="">
+                            <p class="answer-preview answer-preview--text">
+                                from question <strong>10</strong> to <strong>15</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pregnant-question--list">
+                    <div class="question theory">
+                        <div class="question-top">
+                            <span class="q-number">10.</span>
+                            <div class="tools">
+                                <span class="save">save</span>
+                                <span class="edit">edit</span>
+                                <span class="delete">delete</span>
+                            </div>
+                        </div>
+                        <div class="view-mode">
+                            <form action="" class="form question-form edit-mode">
+                                <div class="question-input--container">
+                                    <input type="text" placeholder="type your question here" class="question-input">
+                                </div>
+                                <div class="answer-input--container">
+                                    <textarea placeholder="type your answer here" name="" id="" cols="30" rows="10" class="answer-textarea"></textarea>
+                                </div>
+                            </form>
+                            <div class="preview-mode">
+                                <p class="question-preview">
+                                    What is HTML?
+                                </p>
+                                <p class="answer-preview answer-preview--text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est, nam explicabo voluptas sequi ut!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-question--container">
+                        <div class="question-type--container">
+                            <span class="question-type--label">q type?</span>
+                            <select class="question-type--select">
+                                <option value="">single</option>
+                                <option value="">pregnant</option>
+                            </select>
+                        </div>
+                        <div class="add-question--symbol"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question objective">
+                <div class="question-top">
+                    <span class="q-number">10.</span>
+                    <div class="select-container">
+                        <select name="" id="" class="q-type">
+                            <option value="">subjective</option>
+                            <option value="">objective</option>
+                        </select>
+                    </div>
+                    <div class="tools">
+                        <span class="save">save</span>
+                        <span class="edit">edit</span>
+                        <span class="delete">delete</span>
+                    </div>
+                </div>
+                <div class="view-mode">
+                    <form action="" class="form question-form edit-mode">
+                        <div class="question-input--container">
+                            <input type="text" placeholder="type your question here" class="question-input">
+                        </div>
+                        <div class="answer-input--container">
+                            <ul class="options">
+                                <li class="option-item">
+                                    <input type="radio" checked name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="answer" class="option-input">
+                                </li>
+                            </ul>
+                            <ul class="options hidden">
+                                <li class="option-item">
+                                    <input type="radio" name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="option" class="option-input">
+                                    <span class="remove">x</span>
+                                </li>
+                                <li class="option-item">
+                                    <input type="radio" name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="option" class="option-input">
+                                    <span class="remove">x</span>
+                                </li>
+                                <li class="option-item">
+                                    <input type="radio" name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="option" class="option-input">
+                                    <span class="remove">x</span>
+                                </li>
+                                <li class="option-item">
+                                    <input type="radio" name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="option" class="option-input">
+                                    <span class="remove">x</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                    <div class="preview-mode">
+                        <p class="question-preview">
+                            What is HTML?
+                        </p>
+                        <div class="answer-preview">
+                            <ul class="options-preview subjective-options--preview">
+                                <li class="option-preview--item correct-opt">
+                                    <input disabled checked type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                            </ul>
+                            <ul class="options-preview objective-options--preview hidden">
+                                <li class="option-preview--item">
+                                    <input disabled type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                                <li class="option-preview--item correct-opt">
+                                    <input disabled checked type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                                <li class="option-preview--item">
+                                    <input disabled type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                                <li class="option-preview--item">
+                                    <input disabled type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question objective">
+                <div class="question-top">
+                    <span class="q-number">10.</span>
+                    <div class="select-container">
+                        <select name="" id="" class="q-type">
+                            <option value="">objective</option>
+                            <option value="">subjective</option>
+                        </select>
+                    </div>
+                    <div class="tools">
+                        <span class="save">save</span>
+                        <span class="edit">edit</span>
+                        <span class="delete">delete</span>
+                    </div>
+                </div>
+                <div class="view-mode">
+                    <form action="" class="form question-form edit-mode">
+                        <div class="question-input--container">
+                            <input type="text" placeholder="type your question here" class="question-input">
+                        </div>
+                        <div class="answer-input--container">
+                            <ul class="options hidden">
+                                <li class="option-item">
+                                    <input type="radio" checked name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="answer" class="option-input">
+                                </li>
+                            </ul>
+                            <ul class="options">
+                                <li class="option-item">
+                                    <input type="radio" name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="option" class="option-input">
+                                    <span class="remove">x</span>
+                                </li>
+                                <li class="option-item">
+                                    <input type="radio" name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="option" class="option-input">
+                                    <span class="remove">x</span>
+                                </li>
+                                <li class="option-item">
+                                    <input type="radio" name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="option" class="option-input">
+                                    <span class="remove">x</span>
+                                </li>
+                                <li class="option-item">
+                                    <input type="radio" name="correct-answer" class="choose-answer">
+                                    <input type="text" placeholder="option" class="option-input">
+                                    <span class="remove">x</span>
+                                </li>
+                            </ul>
+                            <a href="">add more opts</a>
+                        </div>
+                    </form>
+                    <div class="preview-mode">
+                        <p class="question-preview">
+                            What is HTML?
+                        </p>
+                        <div class="answer-preview">
+                            <ul class="options-preview subjective-options--preview hidden">
+                                <li class="option-preview--item correct-opt">
+                                    <input disabled checked type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                            </ul>
+                            <ul class="options-preview">
+                                <li class="option-preview--item">
+                                    <input disabled type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                                <li class="option-preview--item correct-opt">
+                                    <input disabled checked type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                                <li class="option-preview--item">
+                                    <input disabled type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                                <li class="option-preview--item">
+                                    <input disabled type="checkbox" class="option-preview--checkbox">
+                                    <p class="option-preview--text answer-preview--text">HyperText Markup Language</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question theory">
+                <div class="question-top">
+                    <span class="q-number">10.</span>
+                    <div class="tools">
+                        <span class="save">save</span>
+                        <span class="edit">edit</span>
+                        <span class="delete">delete</span>
+                    </div>
+                </div>
+                <div class="view-mode">
+                    <form action="" class="form question-form edit-mode">
+                        <div class="question-input--container">
+                            <input type="text" placeholder="type your question here" class="question-input">
+                        </div>
+                        <div class="answer-input--container">
+                            <textarea placeholder="type your answer here" name="" id="" cols="30" rows="10" class="answer-textarea"></textarea>
+                        </div>
+                    </form>
+                    <div class="preview-mode">
+                        <p class="question-preview">
+                            What is HTML?
+                        </p>
+                        <p class="answer-preview answer-preview--text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor est, nam explicabo voluptas sequi ut!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="add-question--container">
+                <div class="question-type--container">
+                    <span class="question-type--label">q type?</span>
+                    <select class="question-type--select">
+                        <option value="">single</option>
+                        <option value="">pregnant</option>
+                    </select>
+                </div>
+                <div class="add-question--symbol"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/app.js"></script>
+<script src="./assets/js/question.js"></script>
+<script src="./assets/js/objective.js"></script>
+
+</html>
