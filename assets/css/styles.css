@@ -185,7 +185,7 @@ body {
     background-color: white;
 }
 
-.question {
+.question, .pregnant-question--setup-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
