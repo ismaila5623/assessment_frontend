@@ -432,7 +432,9 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 20px rgb(110, 184, 50);
 }
-
+.pregnant-question--container .add-question--container{
+    align-self: flex-start;
+}
 .pregnant-question--list {
     display: flex;
     flex-direction: column;
