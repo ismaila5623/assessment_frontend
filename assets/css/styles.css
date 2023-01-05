@@ -343,6 +343,7 @@ body {
 }
 
 .option-item {
+    flex-shrink: 1;
     height: 30px;
     list-style-type: none;
     display: flex;
@@ -351,6 +352,7 @@ body {
     padding: .2em 0;
     background-color: white;
     border: 1.5px solid gray;
+    max-width: 100%;
 }
 
 .choose-answer {
@@ -359,6 +361,7 @@ body {
 }
 
 .option-input {
+    max-width:90%;
     flex: 1;
     height: 100%;
     border: none;
@@ -464,7 +467,9 @@ body {
 }
 
 .pregnant-question--bottom {
+    width:100%;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .question-img--input {}
