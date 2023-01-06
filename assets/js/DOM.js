@@ -8,11 +8,13 @@ import { addClass, setAttribute, append, addEvents } from './functions.js'
 import { questionsContainer, pregnantQuestionList} from './app.js';
 
 function loadPage(){
-    questionsContainer.append(addNewQuestionButton())    
+    append([
+        [[addNewQuestionButton(), submitBtn()], questionsContainer]
+    ])
 }
 function createQuestion(type){
-    let questionContainer = questionsContainer.lastElementChild;
-    questionsContainer.insertBefore(type, questionContainer)
+    let newQuestionBtn = questionsContainer.lastElementChild.previousElementSibling;
+    questionsContainer.insertBefore(type, newQuestionBtn)
 }
 
 
@@ -73,6 +75,25 @@ function addNewQuestionButton(qType = ''){
     ])
 
     return addQuestionContainer;
+}
+
+function submitBtn(){
+    let btnContainer = document.createElement('div')
+    let submitBtn = document.createElement('button')
+
+    submitBtn.textContent = 'submit'
+
+    addClass([btnContainer, submitBtn], ['btn-container', 'submit-btn'])
+
+    append([
+        [[submitBtn], btnContainer]
+    ])
+
+    addEvents([
+        {el:submitBtn, type:'click', handler:handleQuestion},
+    ])
+
+    return btnContainer;
 }
 /* --------------- PREGNANT QUESTION CREATION - BEGIN -----------*/
 function pregnantQuestionEl(){
