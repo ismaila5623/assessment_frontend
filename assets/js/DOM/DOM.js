@@ -1,17 +1,13 @@
 import {
-    questionSetup,
     handleNewQuestionBtn,
     handleQuestion
-} from './event-handler.js'
+} from '../events/main-handler.js'
 
-import { addClass, setAttribute, append, addEvents } from './functions.js'
-import { questionsContainer, pregnantQuestionList} from './app.js';
+import { addClass, setAttribute, append, addEvents, randomKey } from '../functions/functions.js'
+import { questionsContainer, pregnantQuestionList} from '../app.js';
 
-function loadPage(){
-    append([
-        [[addNewQuestionButton(), submitBtn()], questionsContainer]
-    ])
-}
+
+//for creating new question base on question type selected
 function createQuestion(type){
     let newQuestionBtn = questionsContainer.lastElementChild.previousElementSibling;
     questionsContainer.insertBefore(type, newQuestionBtn)
@@ -96,9 +92,11 @@ function submitBtn(){
     return btnContainer;
 }
 /* --------------- PREGNANT QUESTION CREATION - BEGIN -----------*/
-function pregnantQuestionEl(){
+function pregnantQuestionEl(qId){
     let pregnantQuestionContainer = document.createElement('div')
     let pregnantQuestionList = document.createElement('div')
+
+    setAttribute(pregnantQuestionContainer, 'data-id', qId)
 
     addClass(
         [pregnantQuestionContainer, pregnantQuestionList],
@@ -207,9 +205,11 @@ function previewModePregnantQ(){
 
 
 /* ---------------- THEORY QUESTION CREATION - BEGIN ------------ */
-function theoryQuestionEl(){
+function theoryQuestionEl(qId){
     let question = document.createElement('div')
     
+    setAttribute(question, 'data-id', qId)
+
     addClass(
         [question],
         ['question theory']
@@ -267,8 +267,10 @@ function previewModeTheory(){
 
 /* ---------------- OBJECTIVE & SUBJECTIVE QUESTION CREATION - BEGIN ------------ */
 // objective
-function objectiveQuestionEl(){
+function objectiveQuestionEl(qId){
     let question = document.createElement('div')
+
+    setAttribute(question, 'data-id', qId)
     
     addClass(
         [question],
@@ -289,24 +291,24 @@ function answerInputObjective(){
         [options],
         ['options']
     )
-
+    let correctAnsName = randomKey(10)
     for(let i = 0; i<4; i++){
         append([
-            [[answerInputOption()], options]
+            [[answerInputOption(correctAnsName)], options]
         ])
     }
 
     return options
 }
 
-function answerInputOption(){
+function answerInputOption(correctAnsName = ''){
     let optionItem = document.createElement('li')
     let chooseAnswer = document.createElement('input')
     let optionInput = document.createElement('input')
     let remove = document.createElement('span')
 
     setAttribute(chooseAnswer, 'type', 'radio')
-    setAttribute(chooseAnswer, 'name', 'correct-answer')
+    setAttribute(chooseAnswer, 'name', correctAnsName)
     setAttribute(optionInput, 'type', 'text')
     setAttribute(optionInput, 'placeholder', 'option')
 
@@ -369,8 +371,10 @@ function answerPreviewOption(){
     return optionPreviewItem;
 }
 // subjective
-function subjectiveQuestionEl(){
+function subjectiveQuestionEl(qId){
     let question = document.createElement('div')
+
+    setAttribute(question, 'data-id', qId)
     
     addClass(
         [question],
@@ -661,7 +665,8 @@ function questionPreviewText(){
 
 
 export {
-    loadPage,
+    addNewQuestionButton,
+    submitBtn,
     createQuestion,
     pregnantQuestionEl,
     theoryQuestionEl,

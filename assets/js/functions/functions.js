@@ -83,40 +83,89 @@ function setTextContent(el, value){
 function removeEl(el){
     el.remove()
 }
-//dom functions
-function chooseCorrectOption(parent, target){
-    let optionsInput = getElementByClass('.edit-mode .options', parent)
-    let optionsPreview = getElementByClass('.preview-mode .answer-preview .options-preview', parent)
-    let index = getIndex(getTargetParent(target, 'option-item'))
-    for(let i = 0; i<optionsPreview.children.length; i++){
-        removeAttribute(optionsInput.children[i].firstElementChild, 'checked')
-        removeAttribute(optionsPreview.children[i].firstElementChild, 'checked')
-    }
-    setAttribute(optionsInput.children[index].firstElementChild, 'checked')
-    setAttribute(optionsPreview.children[index].firstElementChild, 'checked')
-}
-
-function removeOptionItem(parentFilter, target){
-    let optionsInput = getElementByClass('.edit-mode .options', parentFilter)
-    let optionsPreview = getElementByClass('.preview-mode .answer-preview .options-preview', parentFilter)
-    let index = getIndex(getTargetParent(target, 'option-item'))
-    removeChild(optionsInput, index)
-    removeChild(optionsPreview, index)
+function getElementByClass(className, parent = document){
+    return parent.querySelector(className)
 }
 function removeChild(parent, childIndex){
     removeEl(parent.children[childIndex])
 }
-function getElementByClass(className, parent = document){
-    return parent.querySelector(className)
+
+
+function randomKey(length = 15){
+    return shuffle(length)
 }
-function viewEditMode(parent){
-    show([getElementByClass('.view-mode .edit-mode', parent), getElementByClass('.question-top .tools .preview', parent)])
-    hide([getElementByClass('.view-mode .preview-mode', parent), getElementByClass('.question-top .tools .edit', parent)])
+function shuffle(length){
+    let len = 6
+    let tempArr = []
+    let finalRand = ''
+    randomLowerLetters(len).forEach( rand => {
+        tempArr.push(rand)
+    })
+    randomUpperLetters(len).forEach( rand => {
+        tempArr.push(rand)
+    })
+    randomNumbers(len).forEach( rand => {
+        tempArr.push(rand)
+    })
+    randomSymbols(len).forEach( rand => {
+        tempArr.push(rand)
+    })
+    for(let i = 0; i<length; i++){
+        finalRand += tempArr[getRandom(tempArr)]
+    }
+    tempArr = []
+    return finalRand;
 }
-function viewPreviewMode(parent){
-    show([getElementByClass('.view-mode .preview-mode', parent), getElementByClass('.question-top .tools .edit', parent)])
-    hide([getElementByClass('.view-mode .edit-mode', parent), getElementByClass('.question-top .tools .preview', parent)])
+function randomLowerLetters(length){
+    let arr = []
+    for(let i = 0; i < length; i++){
+        arr.push(generateRandom('letter-lower'))
+    }
+    return arr
 }
+function randomUpperLetters(length){
+    let arr = []
+    for(let i = 0; i < length; i++){
+        arr.push(generateRandom('letter-upper'))
+    }
+    return arr
+}
+function randomNumbers(length){
+    let arr = []
+    for(let i = 0; i < length; i++){
+        arr.push(generateRandom('number'))        
+    }
+    return arr
+}
+function randomSymbols(length){
+    let arr = []
+    for(let i = 0; i < length; i++){
+        arr.push(generateRandom('symbol'))        
+    }
+    return arr;
+}
+function generateRandom(type){
+    let letterLower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    let letterUpper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    let num = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+    let symbol = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '/', '?', ',', '<', '.', '>', '[', '{', ']', '}']
+    switch(type){
+        case 'letter-lower':
+            return letterLower[getRandom(letterLower)]
+        case 'letter-upper':
+            return letterUpper[getRandom(letterUpper)]
+        case 'number':
+            return num[getRandom(num)]
+        case 'symbol':
+            return symbol[getRandom(symbol)]
+        default:
+            console.log('type invalid')
+    }
+}
+function getRandom(list){
+    return Math.floor(Math.random()*list.length)
+}
+
 /* ---------------- HELPER METHODS - END ------------ */
 
 export {
@@ -132,10 +181,7 @@ export {
     getIndex,
     setTextContent,
     removeEl,
-    chooseCorrectOption,
-    removeOptionItem,
     removeChild,
     getElementByClass,
-    viewEditMode,
-    viewPreviewMode,
+    randomKey,
 }
