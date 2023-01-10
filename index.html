@@ -46,12 +46,12 @@
                         </div>
                         <div class="input-label--container">
                             <div class="form-label">question type</div>
-                            <select class="form-select">
-                                <option value="" class="form-option">theory</option>
-                                <option value="" class="form-option">objective</option>
-                                <option value="" class="form-option">subjective</option>
-                                <option value="" class="form-option">objective & subjective</option>
-                                <option value="" class="form-option">mixed</option>
+                            <select class="form-select question-type">
+                                <option value="theory" class="form-option">theory</option>
+                                <option value="objective" class="form-option">objective</option>
+                                <option value="subjective" class="form-option">subjective</option>
+                                <option value="obj-subj" class="form-option">objective & subjective</option>
+                                <option value="mixed" class="form-option">mixed</option>
                             </select>
                         </div>
                         <div class="btn-container">
@@ -63,5 +63,13 @@
         </div>
     </div>
 </body>
-
+<script>
+    let setupForm = document.querySelector('.setup-form')
+    let questionType = setupForm.querySelector('.question-type')
+    setupForm.addEventListener('submit', e => {
+        e.preventDefault()
+        localStorage.setItem('question-type', questionType.value)
+        window.location = './questions.html'
+    })
+</script>
 </html>

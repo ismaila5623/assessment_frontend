@@ -116,7 +116,7 @@ body {
 
 .add-question--container {
     align-self: flex-end;
-    width: 200px;
+    width: 250px;
     height: 30px;
     display: flex;
     justify-content: space-between;
@@ -133,7 +133,13 @@ body {
     padding: .3em;
     position: relative;
 }
-
+.question-type--container .type{
+    border:1px solid lightgreen;
+    padding:0;
+    font-size: .7rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
 .question-type--label {
     font-size: .7rem;
     font-weight: bold;

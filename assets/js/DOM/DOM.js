@@ -20,6 +20,7 @@ function addNewQuestionButton(qType = ''){
     let questionTypeContainer = document.createElement('div')
     let questionTypeLabel = document.createElement('span')
     let questionTypeSelect = document.createElement('select')
+    let type = document.createElement('select')
     let addQuestionSymbol = document.createElement('div')
 
     // addQuestionSymbol.addEventListener('click', handleNewQuestionBtn)
@@ -35,6 +36,33 @@ function addNewQuestionButton(qType = ''){
     questionTypeLabel.textContent = 'q type?'
 
     let options = []
+    let questionType = localStorage.getItem('question-type')
+
+    let options2 = [
+        questionType == 'theory' ?
+            {value:'theo', text: 'theo'} :
+            questionType == 'objective' ? 
+                {value: 'obj', text: 'obj'} :
+                questionType == 'subjective' ?
+                    {value: 'subj', text: 'subj'} :
+                    questionType == 'obj-subj' ?
+                        {value: 'obj-subj', text: 'obj-subj'} :
+                        [{value: 'theo', text: 'theo'},
+                        {value: 'obj', text: 'obj'},
+                        {value: 'subj', text: 'subj'},]
+    ]
+
+    if(questionType == 'mixed') options2 = options2[0]
+
+    for(let i = 0; i<options2.length; i++){
+
+        let opt2 = document.createElement('option')
+
+        opt2.value = options2[i].value
+        opt2.textContent = options2[i].text
+
+        type.append(opt2)
+    }
 
     if(qType == 'pregnant-question'){
         options = [
@@ -43,7 +71,7 @@ function addNewQuestionButton(qType = ''){
     }else{
         options = [
             {value : "single", text: 'single'},
-            {value : "pregnant", text: 'pregnant'}
+            {value : "pregnt", text: 'pregnt'}
         ]
     }
 
@@ -57,16 +85,18 @@ function addNewQuestionButton(qType = ''){
     addClass(
         [
             addQuestionContainer, questionTypeContainer, 
-            questionTypeLabel, questionTypeSelect, addQuestionSymbol
+            questionTypeLabel, questionTypeSelect, addQuestionSymbol,
+            type,
         ],
         [
             'add-question--container', 'question-type--container',
-            'question-type--label', 'question-type--select', 'add-question--symbol'
+            'question-type--label', 'question-type--select single-preg', 'add-question--symbol',
+            'question-type--select q-type',
         ]
     )
 
     append([
-        [[questionTypeLabel, questionTypeSelect], questionTypeContainer],
+        [[questionTypeLabel, type, questionTypeSelect], questionTypeContainer],
         [[questionTypeContainer, addQuestionSymbol], addQuestionContainer]
     ])
 
