@@ -30,7 +30,7 @@ import {
 } from './other/subjective-handler.js';
 import { newQuestion } from './other/new-question-handler.js';
 import { questionType } from './other/others.js';
-
+import { entry } from './other/new-question-handler.js';
 
 //handles add new question button
 function handleNewQuestionBtn(e){
@@ -94,7 +94,7 @@ function handleQuestion(e){
     if(!e.target.classList.contains('choose-answer')){
         e.preventDefault();
     }if(e.target.classList.contains('submit-btn')){
-
+        entry.printAllQuestions()
     }else if(getTargetParent(e.target, 'question').classList.contains('question')){
         parent = getTargetParent(e.target, 'question');
         //handles single question
@@ -109,6 +109,8 @@ function handleQuestion(e){
                 viewPreviewMode(parent)
                 break;
             case e.target.classList.contains('delete'):
+                entry.deleteQuestion(parent.dataset.id)
+                console.log(entry.getQNumbers())
                 removeEl(parent)
                 break;
             case e.target.classList.contains('q-type'):
@@ -124,25 +126,26 @@ function handleQuestion(e){
                 handleSubjective(e.target, parent)
                 break;
         }
-        console.log('non-pregnant--question event handler')
-        }else{
-            //handles tools events for pregnant question
-            parent = getTargetParent(e.target, 'pregnant-question--container');
-            if(getTargetParent(e.target, 'tools').classList.contains('tools')){
-                if(e.target.classList.contains('save')){
+    }else{
+        //handles tools events for pregnant question
+        parent = getTargetParent(e.target, 'pregnant-question--container');
+        if(getTargetParent(e.target, 'tools').classList.contains('tools')){
+            if(e.target.classList.contains('save')){
 
-                }else if(e.target.classList.contains('edit')){
-                    viewEditMode(parent)
-                }else if(e.target.classList.contains('preview')){
-                    viewPreviewMode(parent)
-                }else if(e.target.classList.contains('delete')){
-                    removeEl(parent)
-                }
-            }else{
-                //other pregnant question events excluding tools events
-                handlePregnantQuestion(e.target, getElementByClass('.view-mode .pregnant-question--form', parent))
+            }else if(e.target.classList.contains('edit')){
+                viewEditMode(parent)
+            }else if(e.target.classList.contains('preview')){
+                viewPreviewMode(parent)
+            }else if(e.target.classList.contains('delete')){
+                entry.deleteQuestion(parent.dataset.id)
+                console.log(entry.getQNumbers())
+                removeEl(parent)
             }
+        }else{
+            //other pregnant question events excluding tools events
+            handlePregnantQuestion(e.target, parent)
         }
+    }
 }
 
 

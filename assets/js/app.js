@@ -10,7 +10,7 @@ let pregnantQuestionList = document.querySelector('.pregnant-question--list')
 
 
 loadPage()
-createQuestion(pregnantQuestionEl('alk2938aljdf->'))
+// createQuestion(pregnantQuestionEl('alk2938aljdf->'))
 
 export {
     questionsContainer,

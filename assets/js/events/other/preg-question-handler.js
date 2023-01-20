@@ -3,10 +3,12 @@ import {
     getElementByClass,
     getTargetParent
 } from "../../functions/functions.js"
+import { entry } from "./new-question-handler.js"
 
 function descriptionInput(target, parent){
     let pregnantQuestionDesc = getElementByClass('.preview-mode .question-preview', getTargetParent(parent, 'view-mode'))
     setTextContent(pregnantQuestionDesc, target.value)
+    entry.setDescription(parent.dataset.id, target.value)
 }
 
 function questionRangeInput(target, parent){
@@ -14,8 +16,10 @@ function questionRangeInput(target, parent){
     let previewRangeItem = previewRangeDesc.querySelectorAll('strong')
     if(target.classList.contains('from-input')){
         setTextContent(previewRangeItem[0], target.value)
+        entry.setRangeStart(parent.dataset.id, target.value)
     }else{
         setTextContent(previewRangeItem[1], target.value)
+        entry.setRangeEnd(parent.dataset.id, target.value)
     }
 }
 function pregnantQuestionImg(target, parent){
